@@ -18,6 +18,9 @@ public class Calculator {
 		if(num < 0) {
 			throw new IllegalArgumentException("Negatives not allowed: " + number);
 		}
+		if(num > 1000) {
+			num = 0;
+		}
 		return num;
 	}
 

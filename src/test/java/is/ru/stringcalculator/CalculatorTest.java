@@ -45,4 +45,8 @@ public class CalculatorTest {
     public void testNegativeNumber2(){
         assertEquals(0, Calculator.add("1,-2,4"));
     }
+     @Test
+     public void testNumOver1000(){
+        assertEquals(2, Calculator.add("1001,2"));
+    }
 }
