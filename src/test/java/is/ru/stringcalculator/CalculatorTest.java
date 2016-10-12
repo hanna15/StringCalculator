@@ -35,7 +35,7 @@ public class CalculatorTest {
     //@Rule
     //public ExpectedException thrown = ExpectedException.none();
  
-    @Test
+    @Test(expected=IllegalArgumentException.class) 
     public void testNegativeNumber(){
     	//thrown.expect(IllegalArgumentException.class);
     	//thrown.expectMessage(equalTo("Negatives not allowed: -1"));
