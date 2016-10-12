@@ -14,7 +14,11 @@ public class Calculator {
 	}
 
 	private static int toInt(String number){
-		return Integer.parseInt(number);
+		int num = Integer.parseInt(number);
+		if(num < 0) {
+			throw new IllegalArgumentException("Negatives not allowed: " + number);
+		}
+		return num;
 	}
 
 	private static String[] splitNumbers(String numbers, String delimeter){
