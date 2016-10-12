@@ -32,8 +32,17 @@ public class CalculatorTest {
     public void testNewLineBetweenNumbers(){
     	assertEquals(6, Calculator.add("1\n2,3"));
     }
-    @Test(expected=IllegalArgumentException.class)
+    //@Rule
+    //public ExpectedException thrown = ExpectedException.none();
+ 
+    @Test
     public void testNegativeNumber(){
+    	//thrown.expect(IllegalArgumentException.class);
+    	//thrown.expectMessage(equalTo("Negatives not allowed: -1"));
     	assertEquals(0, Calculator.add("-1,2"));
+    }
+    @Test(expected=IllegalArgumentException.class)  //ath baeta vid svo tjekki lika a villuskilabodum
+    public void testNegativeNumber2(){
+        assertEquals(0, Calculator.add("1,-2,4"));
     }
 }
