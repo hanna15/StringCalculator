@@ -6,9 +6,9 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
-		else if(text.contains("[")) {
+		else if(text.contains("//")) {
 			String[] splitted = splitNumbers(text, "\n");
-			String delim = splitted[0];
+			String delim = splitted[0].substring(2); //the delimeter is on the left side of the new line char, except first 2 characters (\\)
 			String the_text = splitted[1];
 			return sum(splitNumbers(the_text, delim));
 		}
