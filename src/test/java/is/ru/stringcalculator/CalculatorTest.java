@@ -58,4 +58,8 @@ public class CalculatorTest {
      public void testDiffDelim(){
         assertEquals(3, Calculator.add("//%\n1%2"));
     }
+     @Test
+     public void testDiffDelim2(){
+        assertEquals(12, Calculator.add("//;\n1;2;9"));
+    }
 }
