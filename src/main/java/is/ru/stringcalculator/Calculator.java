@@ -6,6 +6,12 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
+		else if(text.contains("[")) {
+			String[] splitted = splitNumbers(text, "\n");
+			String delim = splitted[0];
+			String the_text = splitted[1];
+			return sum(splitNumbers(the_text, delim));
+		}
 		else if(text.contains(",") || text.contains("\n")) {
 			return sum(splitNumbers(text, ",|\n"));
 		}
@@ -15,9 +21,6 @@ public class Calculator {
 
 	private static int toInt(String number){
 		int num = Integer.parseInt(number);
-		if(num < 0) {
-			throw new IllegalArgumentException("Negatives not allowed: " + number);
-		}
 		if(num > 1000) {
 			num = 0;
 		}
@@ -30,12 +33,23 @@ public class Calculator {
       
     private static int sum(String[] numbers){
  	    int total = 0;
+ 	    String msg = "";
         for(String number : numbers){
-		    total += toInt(number);
+        	if(toInt(number) < 0) {
+        		if (msg == "") {
+        			msg = number;
+        		}
+        		else {
+        			msg = msg + "," + number;
+        		}
+        	}
+        	else {
+        		total += toInt(number);
+        	} 
+		}
+		if(msg != "") {
+			throw new IllegalArgumentException("Negatives not allowed: " + msg);
 		}
 		return total;
     }
-
-
-
 }
