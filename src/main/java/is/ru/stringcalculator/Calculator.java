@@ -16,7 +16,7 @@ public class Calculator {
 			return sum(splitNumbers(text, ",|\n"));
 		}
 		else
-			return 1;
+			return toInt(text);
 	}
 
 	private static int toInt(String number){
